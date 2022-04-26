@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
                if(timerValue[0] === 0){
                   clearInterval(timerInterval);
                   playAudio();
-                  console.log('clear interval');
                }else{
                   timerValue[0]--;
                   timerValue[1] = 5;
