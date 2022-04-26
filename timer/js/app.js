@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function playAudio(){
       const myAudio = new Audio;
-      myAudio.src = "../resources/timerEnd.mp3";
+      myAudio.src = "../timer/resources/timerEnd.mp3";
       myAudio.play();
 
       setTimeout(() => myAudio.pause(), 2000);
