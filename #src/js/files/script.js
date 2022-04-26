@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
    const buttonCont = document.querySelector('.timer__buttons');
    let timerValue;
    let timerInterval;
+   let timerTimeout;
 
    buttonCont.addEventListener('click', (e) => {
       if(e.target.closest('[data-time]')){
          clearInterval(timerInterval);
+         clearTimeout(timerTimeout);
          const timerArray = e.target.closest('[data-time]').dataset.time.trim().split('');
          const indexOfСolon = timerArray.indexOf(':');
          timerArray.splice(indexOfСolon, 1);
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       createNumber(timerValue[1], timerNumber2, true);
       createNumber(timerValue[2], timerNumber3, true);
 
-      setTimeout(() => {
+      timerTimeout = setTimeout(() => {
          setNewTimerValue();
          timerInterval = setInterval(setNewTimerValue, 1000);
       }, 500);
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function playAudio(){
       const myAudio = new Audio;
-      myAudio.src = "../timer/resources/timerEnd.mp3";
+      myAudio.src = "../resources/timerEnd.mp3";
       myAudio.play();
 
       setTimeout(() => myAudio.pause(), 2000);
