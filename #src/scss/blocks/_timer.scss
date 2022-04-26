@@ -1,0 +1,163 @@
+.timer {
+   padding: 40px 0;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   position: relative;
+
+   &:before{
+      content: '';
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      background: $blue;
+      opacity: 0.3;
+      filter: blur(150px);
+      left: -420px;
+      top: -59.84px;
+
+      @media (max-width: 520px){
+         width: 400px;
+         height: 400px;
+      }
+   }
+
+   &:after{
+      content: '';
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      background: $blue;
+      opacity: 0.3;
+      filter: blur(150px);
+      right: -420px;
+      bottom: -59.84px;
+
+      @media (max-width: 520px){
+         width: 400px;
+         height: 400px;
+      }
+   }
+
+   &__content {
+      width: 100%;
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+   }
+
+   &__item {
+   }
+
+   &__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0px 0px 0px;
+
+      @media (max-width: 520px){
+         flex-wrap: wrap;
+      }
+   }
+
+   &__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 35px;
+      font-size: 16px;
+      padding: 0 20px;
+      border-radius: 20px;
+      color: $blue;
+      border: 3px solid $blue;
+      transition: all .3s ease-in-out;
+      margin: 0 7px;
+      background: $white;
+
+      @media(any-hover: hover){
+         &:hover{
+            color: $white;
+            background: $blue;
+         }
+      }
+      
+      @media (max-width: 520px){
+         margin-bottom: 15px;
+      }
+   }
+}
+
+.item-timer {
+   width: 100%;
+   background: #fff;
+   border: 5px solid $blue;
+   border-radius: 10px;
+   height: 160px;
+   display: flex;
+   overflow: hidden;
+
+   &__number {
+      height: 100%;
+      flex: 0 0 33.333%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 700;
+      color: $blue;
+
+      span{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 100%;
+         height: 100%;
+         flex: 0 0 100%;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         transition: all .5s linear;
+
+         &.start{
+            top: 0;
+         }
+
+         &.show{
+            animation: show .5s linear forwards;
+
+            @keyframes show {
+               0%{
+                  top: 100%;
+               }
+
+               100%{
+                  top: 0;
+               }
+            }
+         }
+
+         &.hide{
+            transform: translateY(-100%);
+         }
+      }
+
+      &:not(:last-child){
+         &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 5px;
+            transform: translateX(50%);
+            background: $blue;
+         }
+      }
+   }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('_head.html',{
+	"title":"JS Timer"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('_header.html',{})
+			<main class="page">
+				<div class="timer">
+					<div class="timer__content _container">
+						<div class="timer__item item-timer">
+							<div class="item-timer__number item-timer__number_1">0</div>
+							<div class="item-timer__number item-timer__number_2">0</div>
+							<div class="item-timer__number item-timer__number_3">0</div>
+						</div>
+						<div class="timer__buttons">
+							<button class="timer__btn" data-time="1:00">1 minute</button>
+							<button class="timer__btn" data-time="3:00">3 minutes</button>
+							<button class="timer__btn" data-time="5:00">5 minutes</button>
+						</div>
+					</div>
+				</div>
+			</main>
+			@@include('_footer.html',{})
+		</div>
+		<!-- @@include('_popup.html',{}) -->
+		@@include('_js.html',{})
+	</body>
+</html>
